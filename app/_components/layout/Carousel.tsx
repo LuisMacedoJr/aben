@@ -53,8 +53,8 @@ const EmblaCarousel = () => {
     }, [emblaApi])
 
     return (
-        <>
-            <div className="embla relative group max-w-lg mx-auto">
+        <><div className="flex flex-col items-center bg-[var(--faded-white)] w-screen">
+            <div className=" embla relative group max-w-lg w-screen mx-auto">
                 <div className="overflow-hidden" ref={emblaRef}>
                     <div className="flex">
                         {CAROUSEL_ELEMENTS.map((element) => (
@@ -66,6 +66,7 @@ const EmblaCarousel = () => {
                         }
                     </div>
                 </div>
+            </div>
             </div>
 
             {/* <div className="absolute left-4 top-1/2 -translate-y-1/2 z-100">

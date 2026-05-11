@@ -1,44 +1,54 @@
 import MoreButton from "../ui/MoreButton";
 import PublicacoesTitulo from "@/app/_components/ui/PublicacoesTitulo";
 import PublicacoesCard from "@/app/_components/ui/PublicacoesCard";
+import getPublicacoesSummary from "@/app/_lib/getPublicacoesSummary";
+import stringToImageData from "@/app/_lib/imgURLtoStatiImageData";
 
-import publicacao1 from "@/app/_assets/publicacoes/publicacao1.png";
-import publicacao2 from "@/app/_assets/publicacoes/publicacao2.png";
+type PageName = 'home' | 'publicacoesPage';
 
 
-const PUBLICACOES = [
-    {
-        id: 1,
-        img: publicacao1,
-        text: "Programa de Pós-Graduação em Enfermagem Unisinos Mestrado Profissional: uma síntese dos 10 anos de produção",
-        date: "2026-02-30T01:03:18.987"
-    },
-    {
-        id: 2,
-        img: publicacao2,
-        text: "Reflexões sobre o escopo do trabalho da enfermeira na atenção primária à saúde",
-        date: "2026-04-30T01:03:18.987"
-    },
-    {
-        id: 3,
-        img: publicacao2,
-        text: "Programa de Pós-Graduação em Enfermagem Unisinos Mestrado Profissional: uma síntese dos 10 anos de produção",
-        date: "2026-04-12T01:03:18.987"
-    }
-]
+interface PublicacoesProps extends React.ReactElement {
+    variant?: PageName;
+}
 
-export default function Publicacoes() {
+export default async function Publicacoes({
+    variant = 'home' as PageName,
+}): Promise<PublicacoesProps> {
+
+    const PUBLICACOES = await getPublicacoesSummary();
+    await Promise.all(
+        PUBLICACOES.map(async (publicacao) => {
+            publicacao.img = await stringToImageData(publicacao.imgURL);
+        })
+    );
+
     return (
         <div className=" flex flex-col justify-center gap-6">
             <div className="grow flex flex-row items-center justify-between">
-                <PublicacoesTitulo />
-                <MoreButton />
+                {(() => {
+                    if (variant == 'home') {
+                        return (<>
+                            <PublicacoesTitulo />
+                            <MoreButton />
+                        </>
+                        );
+                    } else if (variant == 'publicacoesPage') {
+                        return (<>
+                            <PublicacoesTitulo />
+                        </>
+
+                        )
+                    }
+                })()}
+
 
             </div>
+            <div className="flex flex-col items-center gap-6 lg:flex-row">
             {PUBLICACOES.map((publicacao) => (
-                <PublicacoesCard key={publicacao.id} props={publicacao} />
+                <PublicacoesCard variant={variant} key={publicacao.id} publicacao={publicacao} />
 
             ))}
+            </div>
 
         </div>
     )

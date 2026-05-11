@@ -3,17 +3,35 @@ import Image from "next/image";
 import getElapsedTime from "@/app/_lib/getElapsedTime";
 
 import clock from "@/public/clock.svg";
+import { base } from "framer-motion/client";
 
-// const ElapsedTime = ()
 
-export default async function Clock({ props }) {
+interface ClockProps {
+    variant: "noticias" | "publicacoes";
+    className?: string;
+    date: string;
+}
 
-    const response = await getElapsedTime({props});
+
+export default async function Clock({
+    variant = "noticias",
+    className = "",
+    date,
+    }: ClockProps) {
+
+    const baseStyles = "absolute  rounded-tl-lg flex flex-row items-center  justify-center bg-[var(--violet)] text-[var(--white)] p-1 gap-1";
+
+    const variants = {
+        noticias: "self-end bottom-0",
+        publicacoes: "self-end bottom-0"
+    }
+
+    const response = await getElapsedTime({date});
     
 
 
     return (
-        <div className=" absolute  rounded-tl-lg flex flex-row items-center  justify-center bg-[var(--violet)] text-[var(--white)] p-1 gap-1">
+        <div className={`${baseStyles} ${variants[variant]} ${className}`}>
             <Image
                 src={clock}
                 alt="clock icon"

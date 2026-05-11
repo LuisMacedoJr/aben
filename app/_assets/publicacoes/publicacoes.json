@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "imgURL": "publicacoes/publicacao1.png",
+        "text": "Programa de Pós-Graduação em Enfermagem Unisinos Mestrado Profissional: uma síntese dos 10 anos de produção",
+        "date": "2026-02-30T01:03:18.987"
+    },
+    {
+        "id": 2,
+        "imgURL": "publicacoes/publicacao2.png",
+        "text": "Reflexões sobre o escopo do trabalho da enfermeira na atenção primária à saúde",
+        "date": "2026-04-30T01:03:18.987"
+    },
+    {
+        "id": 3,
+        "imgURL": "publicacoes/publicacao2.png",
+        "text": "Programa de Pós-Graduação em Enfermagem Unisinos Mestrado Profissional: uma síntese dos 10 anos de produção",
+        "date": "2026-04-12T01:03:18.987"
+    }
+]

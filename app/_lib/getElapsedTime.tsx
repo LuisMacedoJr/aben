@@ -22,9 +22,15 @@ const formatElapsedDays = (elapsedDays: number): string => {
     }
 }
 
+interface getElapsedTimeProps {
+    date: string;
+}
 
 
-export default async function getElapsedTime ({props}) {
+
+export default async function getElapsedTime ({
+    date
+}: getElapsedTimeProps) {
     const baseUrl = process.env.API_PATH;
     const response = await fetch(`${baseUrl}/api/time`);
     const timeData = await response.json();
@@ -32,7 +38,7 @@ export default async function getElapsedTime ({props}) {
     console.log(time)
     const currentAbsoluteDays = convertIsoToAbsoluteDays(time);
 
-    const postAbsoluteDays = convertIsoToAbsoluteDays(props.date);
+    const postAbsoluteDays = convertIsoToAbsoluteDays(date);
 
     const elapsedDays = calculateElapsedDays(currentAbsoluteDays, postAbsoluteDays);
     const elapsedTime = formatElapsedDays(elapsedDays);

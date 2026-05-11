@@ -1,0 +1,1 @@
+export type PageName = 'home' | 'noticias' | 'publicacoes' | 'eventos';

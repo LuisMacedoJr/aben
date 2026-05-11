@@ -5,23 +5,22 @@ import "@/app/globals.css";
 import Image from "next/image";
 import hamburger from "@/public/hamburger_icon.svg";
 
-export default function MenuButton({props}) {
+export default function NavShowButton({ props }) {
 
+    return (
+        <>
+            <div className="flex flex-col overflow-visible">
+                <button onClick={props}>
+                    <Image
+                        src={hamburger}
+                        alt="menu" />
+                </button>
 
-        return (
-            <>
-                <div className="flex flex-col overflow-visible">
-                    <button onClick={props}>
-                        <Image
-                            src={hamburger}
-                            alt="menu" />
-                    </button>
+            </div>
 
-                </div>
+        </>
 
-            </>
-
-        );
+    );
 
 }
 

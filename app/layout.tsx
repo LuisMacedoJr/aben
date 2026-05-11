@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import {Barlow_Semi_Condensed} from "next/font/google";
+import {Barlow_Semi_Condensed, Enriqueta} from "next/font/google";
 import "./globals.css";
-import Navbar from "@/app/_components/layout/Navbar";
+import Header from "./_components/layout/Header";
 import Footer from "./_components/layout/Footer";
 
 
@@ -12,15 +11,13 @@ const barlowSemi = Barlow_Semi_Condensed({
   subsets: ["latin"],
 });
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
+const enriqueta = Enriqueta({
+  weight: "400",
+  variable: "--font-enriqueta",
+  subsets: ["latin"],
+});
 
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+
 
 export const metadata: Metadata = {
   title: "aben",
@@ -34,8 +31,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${barlowSemi.className} ${barlowSemi.variable} bg-[var(--white)]`}>
-        <Navbar />
+      <body className={`flex flex-col h-screen ${barlowSemi.variable} ${enriqueta.variable} font-main bg-[var(--white)]`}>
+        <Header />
         {children}
         <Footer />
       </body>

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "imgURL": "noticias/noticia-1.png",
+        "text": "ELEIÇÕES ABEn Nacional e ABEn-RS: Último dia para votar!",
+        "date": "2026-02-30T01:03:18.987"
+    },
+    {
+        "id": 2,
+        "imgURL": "noticias/noticia-2.png",
+        "text": "ABEn-RS divulga chapa homologada para eleição da nova Diretoria Estadual para 2025...",
+        "date": "2026-04-30T01:03:18.987"
+
+    },
+    {
+        "id": 3,
+        "imgURL": "noticias/noticia-3.png",
+        "text": "ELEIÇÕES ABEn Nacional e ABEn-RS: Último dia para votar!",
+        "date": "2026-04-12T01:03:18.987"
+
+    }
+]
