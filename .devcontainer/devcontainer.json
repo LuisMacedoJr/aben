@@ -20,7 +20,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo chown -R node:node . && pnpm install"
+	"postCreateCommand": "sudo chown -R node:node . && pnpm install && pnpm install embla-carousel-react && pnpm install framer-motion"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
